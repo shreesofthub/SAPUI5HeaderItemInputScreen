@@ -1,0 +1,109 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" controllerName="yard.sapyard11.controller.AddDeleteSave" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+                    <Panel expanded="false" expandable="true" headerText="{i18n>head}" width="auto" class="sapUiResponsiveMargin">
+                        <content>
+                            <form:Form editable="true">
+                                <form:formContainers>
+                                    <form:FormContainer>
+                                        <form:formElements>
+                                            <form:FormElement label="Company Code">
+                                                <form:fields>
+                                                    <Input width="50%" id="idCC"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement label="Plant">
+                                                <form:fields>
+                                                    <Input width="50%" id="idPlant"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+                                    </form:FormContainer>
+                                </form:formContainers>
+                                <form:layout>
+                                    <form:ResponsiveGridLayout id="idGridLayout"/>
+                                </form:layout>
+                            </form:Form>
+                        </content>
+                    </Panel>
+                    <Panel expanded="false" expandable="true" headerText="{i18n>item}" width="auto" class="sapUiResponsiveMargin">
+                        <content>
+                            <form:Form editable="true" id="form2">
+                                <form:formContainers>
+                                    <form:FormContainer id="container2">
+                                        <form:formElements>
+                                            <form:FormElement label="Material No" id="element3">
+                                                <form:fields>
+                                                    <Input width="50%" id="matno"/>
+                                            </form:fields>
+                                        </form:FormElement>
+                                            <form:FormElement label="Batch" id="element4">
+                                                <form:fields>
+                                                    <Input width="50%" id="batch"/>
+                                            </form:fields>
+                                        </form:FormElement>
+                                            <form:FormElement label="Quantity" id="element5">
+                                                <form:fields>
+                                                    <Input width="50%" id="qty"/>
+                                            </form:fields>
+                                        </form:FormElement>
+                                            <form:FormElement label="Unit of Measure" id="element6">
+                                                <form:fields>
+                                                    <Input width="50%" id="uom"/>
+                                            </form:fields>
+                                        </form:FormElement>
+                                    </form:formElements>
+                                </form:FormContainer>
+                            </form:formContainers>
+                            <form:layout>
+                                <form:ResponsiveGridLayout id="layout1"/>
+                            </form:layout>
+                        </form:Form>
+                        </content>
+                            <Toolbar >
+                                <Button text="Pack Item" icon="sap-icon://add" press="onAddition"></Button>
+                            </Toolbar>
+                    </Panel>                    
+                    <Panel expanded="true" expandable="true" headerText="{i18n>Table}" width="auto" class="sapUiResponsiveMargin">
+                        <content>
+                            <Table items="{/matTable}" id="idTable" mode="MultiSelect">
+                                <columns>
+                                    <Column >
+                                        <Label text="Material No"></Label>
+                                    </Column>
+                                    <Column >
+                                        <Label text="Batch"></Label>
+                                    </Column>
+                                    <Column >
+                                        <Label text="Quantity"></Label>
+                                    </Column>
+                                    <Column >
+                                        <Label text="Unit of Measure"></Label>
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem >
+                                        <Text text="{matno}"></Text>
+                                        <Text text="{batch}"></Text>
+                                        <Text text="{qty}"></Text>
+                                        <Text text="{uom}"></Text>
+                                    </ColumnListItem>
+                                </items>
+                                <headerToolbar>
+                                    <Toolbar >
+                                        <ToolbarSpacer/>
+                                        <Button text="Delete Row" icon="sap-icon://delete" press="onDelete"></Button>
+                                        <Button text="Save" press="onSave" icon="sap-icon://save"/>
+                                    </Toolbar>
+                                </headerToolbar>
+                            </Table>
+                        </content>
+                    </Panel>
+				<content/>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
